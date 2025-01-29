@@ -26,6 +26,16 @@ class HomeUi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Container(
+        decoration: BoxDecoration(
+          color: MyColors.white,
+          border: Border.all(color: MyColors.black, width: 1),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text("! Under Development",style: TextStyle(color: MyColors.red),),
+        ),
+      ),
       body: Column(
         children: [
           const AppbarUi(),
