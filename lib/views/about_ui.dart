@@ -73,26 +73,26 @@ class _AboutUiState extends State<AboutUi> {
                                   style: TextStyle(
                                     fontSize: FontSizes.body(context),
                                     fontWeight: FontWeights.regular,
-                                    color: MyColors.black,fontFamily: Constants.font2,
+                                    color: MyColors.black,fontFamily: Constants.font,
                                   )),
                               TextSpan(
                                 text: 'first-class grade',
-                                style: TextStyle(fontSize: FontSizes.body(context), fontWeight: FontWeights.semiBold, color: MyColors.black,fontFamily: Constants.font2,),
+                                style: TextStyle(fontSize: FontSizes.body(context), fontWeight: FontWeights.semiBold, color: MyColors.black,fontFamily: Constants.font,),
                               ),
                               TextSpan(
                                   text: ', completed in June 2023. ',
-                                  style: TextStyle(fontFamily: Constants.font2,
+                                  style: TextStyle(fontFamily: Constants.font,
                                     fontSize: FontSizes.body(context),
                                     fontWeight: FontWeights.regular,
                                     color: MyColors.black,
                                   )),
                               TextSpan(
                                 text: 'I joined CI Global Technology as a software engineer',
-                                style: TextStyle(fontFamily: Constants.font2,fontSize: FontSizes.body(context), fontWeight: FontWeights.semiBold, color: MyColors.black),
+                                style: TextStyle(fontFamily: Constants.font,fontSize: FontSizes.body(context), fontWeight: FontWeights.semiBold, color: MyColors.black),
                               ),
                               TextSpan(
                                   text: ' in July 2023 and have been working here since.\n\n I specialize in creating efficient and user-friendly solutions, from web and mobile apps to backend systems. Let\'s connect and create something great together!',
-                                  style: TextStyle(fontFamily: Constants.font2,
+                                  style: TextStyle(fontFamily: Constants.font,
                                     fontSize: FontSizes.body(context),
                                     fontWeight: FontWeights.regular,
                                     color: MyColors.black,
@@ -132,18 +132,18 @@ class _AboutUiState extends State<AboutUi> {
                             text: TextSpan(children: [
                               TextSpan(
                                   text: 'I presented one of my projects, titled \'Intelligent Admissions: The Future of University Decision Making with Machine Learning,\' to the ',
-                                  style: TextStyle(fontFamily: Constants.font2,
+                                  style: TextStyle(fontFamily: Constants.font,
                                     fontSize: FontSizes.body(context),
                                     fontWeight: FontWeights.regular,
                                     color: MyColors.black,
                                   )),
                               TextSpan(
                                 text: 'Tamil Nadu Chief Minister',
-                                style: TextStyle(fontFamily: Constants.font2,fontSize: FontSizes.body(context), fontWeight: FontWeights.semiBold, color: MyColors.black),
+                                style: TextStyle(fontFamily: Constants.font,fontSize: FontSizes.body(context), fontWeight: FontWeights.semiBold, color: MyColors.black),
                               ),
                               TextSpan(
                                   text: '. It was one of 16 projects selected for presentation in the state.',
-                                  style: TextStyle(fontFamily: Constants.font2,
+                                  style: TextStyle(fontFamily: Constants.font,
                                     fontSize: FontSizes.body(context),
                                     fontWeight: FontWeights.regular,
                                     color: MyColors.black,

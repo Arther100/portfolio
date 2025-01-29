@@ -5,10 +5,8 @@ import 'package:karthi_kayan_portfolio/commons/colors.dart';
 import 'package:karthi_kayan_portfolio/commons/constants.dart';
 import 'package:karthi_kayan_portfolio/commons/font_sizes.dart';
 import 'package:karthi_kayan_portfolio/commons/strings.dart';
-import 'package:karthi_kayan_portfolio/services/copy_paste_service.dart';
 import 'package:karthi_kayan_portfolio/services/functional_services.dart';
 import 'package:karthi_kayan_portfolio/services/responsive.dart';
-import 'package:karthi_kayan_portfolio/services/url_launcher.dart';
 import 'package:karthi_kayan_portfolio/views/contact_ui.dart';
 import 'package:karthi_kayan_portfolio/widgets/contact_icon_widget.dart';
 import 'package:karthi_kayan_portfolio/widgets/text_widget.dart';
@@ -221,11 +219,11 @@ class _HeroSectionUiState extends State<HeroSectionUi> {
         SizedBox(height: 10,),
         RichText(text: TextSpan(
             children: [
-              TextSpan(text: 'I am a professional software developer specializing in ', style: TextStyle(fontSize: FontSizes.body(context), fontWeight: FontWeights.regular, color: MyColors.black,fontFamily: Constants.font2,)),
-              TextSpan(text: 'creating websites and apps for Android and iOS', style: TextStyle(fontSize: FontSizes.body(context), fontWeight: FontWeights.semiBold, color: MyColors.black,fontFamily: Constants.font2,)),
-              TextSpan(text: '. My work features user-friendly, high-performing, and well-designed responsive layouts. ', style: TextStyle(fontSize: FontSizes.body(context), fontWeight: FontWeights.regular, color: MyColors.black,fontFamily: Constants.font2,)),
-              TextSpan(text: 'I transform your vision into software that functions seamlessly across all platforms and devices', style: TextStyle(fontSize: FontSizes.body(context), fontWeight: FontWeights.semiBold, color: MyColors.black,fontFamily: Constants.font2,)),
-              TextSpan(text: ', including web, Android, iOS, macOS, Windows, mobile, and desktop.', style: TextStyle(fontSize: FontSizes.body(context), fontWeight: FontWeights.regular, color: MyColors.black,fontFamily: Constants.font2,)),
+              TextSpan(text: 'I am a professional software developer specializing in ', style: TextStyle(fontSize: FontSizes.body(context), fontWeight: FontWeights.regular, color: MyColors.black,fontFamily: Constants.font,)),
+              TextSpan(text: 'crafting innovative software, websites, and mobile apps for Android and iOS. ', style: TextStyle(fontSize: FontSizes.body(context), fontWeight: FontWeights.semiBold, color: MyColors.black,fontFamily: Constants.font,)),
+              TextSpan(text: 'My work stands out with its user-friendly interfaces, high performance, and visually appealing responsive designs. ', style: TextStyle(fontSize: FontSizes.body(context), fontWeight: FontWeights.regular, color: MyColors.black,fontFamily: Constants.font,)),
+              TextSpan(text: 'I transform your vision into seamless software solutions that work flawlessly across platforms and devices', style: TextStyle(fontSize: FontSizes.body(context), fontWeight: FontWeights.semiBold, color: MyColors.black,fontFamily: Constants.font,)),
+              TextSpan(text: ', including web, Android, iOS, macOS, Windows, mobile, and desktop.', style: TextStyle(fontSize: FontSizes.body(context), fontWeight: FontWeights.regular, color: MyColors.black,fontFamily: Constants.font,)),
             ]
         )),
         SizedBox(height: 10,),
@@ -233,13 +231,18 @@ class _HeroSectionUiState extends State<HeroSectionUi> {
           children: [
             Row(
               children: [
-                ContactIconWidget(image: "assets/gmail.png", onPressed: () async {
+                ContactIconWidget(label: '', image: "assets/gmail.png", onPressed: () async {
+                  await FunctionalServices.launchAndCopyUrl(context: context, URL: Constants.linkMailId, textToCopy: Constants.mailId);
+                }),
+                ContactIconWidget(label: '', image: "assets/pngegg.png", onPressed: () async {
+                  await FunctionalServices.launchAndCopyUrl(context: context, URL: Constants.linkPhoneNo, textToCopy: Constants.phoneNo);
+                }),
+                ContactIconWidget(label: '', image: "assets/linkedin.png", onPressed: () async {
                   await FunctionalServices.launchAndCopyUrl(context: context, URL: Constants.linkLinkedIn);
-                },label: '',),
-                ContactIconWidget(image: "assets/gmail.png", onPressed: (){
-                },label: '',),
-                ContactIconWidget(image: "assets/gmail.png", onPressed: (){},label: '',),
-                ContactIconWidget(image: "assets/gmail.png", onPressed: (){},label: '',),
+                }),
+                ContactIconWidget(label: '', image: "assets/pngwingGit.png", onPressed: () async {
+                  await FunctionalServices.launchAndCopyUrl(context: context, URL: Constants.linkGit);
+                }),
               ],
             ),
             Spacer(),

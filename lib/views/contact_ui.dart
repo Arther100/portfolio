@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:karthi_kayan_portfolio/commons/colors.dart';
+import 'package:karthi_kayan_portfolio/commons/constants.dart';
 import 'package:karthi_kayan_portfolio/commons/strings.dart';
+import 'package:karthi_kayan_portfolio/services/functional_services.dart';
 import 'package:karthi_kayan_portfolio/services/responsive.dart';
 import 'package:karthi_kayan_portfolio/widgets/button_widget.dart';
 import 'package:karthi_kayan_portfolio/widgets/contact_icon_widget.dart';
@@ -67,11 +69,20 @@ class ContactUi extends StatelessWidget {
                           !Responsive.isDesktop(context)? Expanded(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                ContactIconWidget(label: "karthikayansde@gmail.com", image: "assets/gmail.png", onPressed: (){}),
-                                ContactIconWidget(label: "karthikayansde@gmail.com", image: "assets/gmail.png", onPressed: (){}),
-                                ContactIconWidget(label: "karthikayansde@gmail.com", image: "assets/gmail.png", onPressed: (){}),
-                                ContactIconWidget(label: "karthikayansde@gmail.com", image: "assets/gmail.png", onPressed: (){}),
+                                ContactIconWidget(label: Constants.mailId, image: "assets/gmail.png", onPressed: () async {
+                                  await FunctionalServices.launchAndCopyUrl(context: context, URL: Constants.linkMailId, textToCopy: Constants.mailId);
+                                }),
+                                ContactIconWidget(label: Constants.phoneNo, image: "assets/pngegg.png", onPressed: () async {
+                                  await FunctionalServices.launchAndCopyUrl(context: context, URL: Constants.linkPhoneNo, textToCopy: Constants.phoneNo);
+                                }),
+                                ContactIconWidget(label: Constants.linkedInId, image: "assets/linkedin.png", onPressed: () async {
+                                  await FunctionalServices.launchAndCopyUrl(context: context, URL: Constants.linkLinkedIn);
+                                }),
+                                ContactIconWidget(label: Constants.gitId, image: "assets/pngwingGit.png", onPressed: () async {
+                                  await FunctionalServices.launchAndCopyUrl(context: context, URL: Constants.linkGit);
+                                }),
                                 SizedBox(height: 20,),
                                 !Responsive.isDesktop(context)? Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
@@ -83,11 +94,20 @@ class ContactUi extends StatelessWidget {
                             ),
                           ):Column(
                             mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              ContactIconWidget(label: "karthikayansde@gmail.com", image: "assets/gmail.png", onPressed: (){}),
-                              ContactIconWidget(label: "karthikayansde@gmail.com", image: "assets/gmail.png", onPressed: (){}),
-                              ContactIconWidget(label: "karthikayansde@gmail.com", image: "assets/gmail.png", onPressed: (){}),
-                              ContactIconWidget(label: "karthikayansde@gmail.com", image: "assets/gmail.png", onPressed: (){}),
+                              ContactIconWidget(label: Constants.mailId, image: "assets/gmail.png", onPressed: () async {
+                                await FunctionalServices.launchAndCopyUrl(context: context, URL: Constants.linkMailId, textToCopy: Constants.mailId);
+                              }),
+                              ContactIconWidget(label: Constants.phoneNo, image: "assets/pngegg.png", onPressed: () async {
+                                await FunctionalServices.launchAndCopyUrl(context: context, URL: Constants.linkPhoneNo, textToCopy: Constants.phoneNo);
+                              }),
+                              ContactIconWidget(label: Constants.linkedInId, image: "assets/linkedin.png", onPressed: () async {
+                                await FunctionalServices.launchAndCopyUrl(context: context, URL: Constants.linkLinkedIn);
+                              }),
+                              ContactIconWidget(label: Constants.gitId, image: "assets/pngwingGit.png", onPressed: () async {
+                                await FunctionalServices.launchAndCopyUrl(context: context, URL: Constants.linkGit);
+                              }),
                               SizedBox(height: 20,),
                               !Responsive.isDesktop(context)? Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
@@ -127,7 +147,9 @@ class ContactUi extends StatelessWidget {
   static Widget resumeBtn(BuildContext context){
     return
       ButtonWidget(
-        onPressed: (){},isResumeBtn: true, label: TextWidget.body(MyStrings.downloadResume, context, color: MyColors.white,),
+        onPressed: () async {
+          await FunctionalServices.launchAndCopyUrl(context: context, URL: Constants.linkResume);
+        },isResumeBtn: true, label: TextWidget.body(MyStrings.downloadResume, context, color: MyColors.white,),
         height: Responsive.isMobile(context)? 35 : 50,
         width: Responsive.isMobile(context)? 170:220,);
   }
