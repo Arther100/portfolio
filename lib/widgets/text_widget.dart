@@ -39,7 +39,8 @@ class TextWidget extends Text {
   factory TextWidget.semiHeader3(String data, BuildContext context, {Color? color}) {
     return TextWidget(
       data,
-      style: TextStyle(fontSize: FontSizes.header3(context), fontWeight: FontWeights.semiBold, color: color,),
+      textAlign: TextAlign.center,
+      style: TextStyle(fontSize: FontSizes.header31(context), fontWeight: FontWeights.semiBold, color: color,),
     );
   }
   factory TextWidget.header3(String data, BuildContext context, {Color? color}) {
