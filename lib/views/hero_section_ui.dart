@@ -261,10 +261,10 @@ class _HeroSectionUiState extends State<HeroSectionUi> {
             padding: EdgeInsets.only(left: Responsive.isVertical(context)?2: 4, bottom: Responsive.isVertical(context)?2: 4, ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15),
-              child: Image.asset(
+              child: Image.network(
                 width: Responsive.getWidth(context)<920?160:240,
                 height: Responsive.getWidth(context)<920?200:300,
-                'assets/myPhoto.jpeg',
+                'https://karthikayansde.github.io/assets-site/assets/affffff.png',
                 fit: BoxFit.cover,
               ),
             ),
