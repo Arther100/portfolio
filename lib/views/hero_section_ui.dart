@@ -363,7 +363,7 @@ class ScrollLoopState extends State<ScrollLoop> {
                           height: size.height / (widget.scrollDir == Axis.horizontal?2: 8),
                           // width: 130,
                           // height: 130,
-                          child: Image.asset(widget.images[index], width: 180,height: 180,),
+                          child: Image.network(widget.images[index], width: 180,height: 180,),
                         ),
                       );
                     },

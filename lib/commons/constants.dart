@@ -1,7 +1,7 @@
 class Constants{
   static const List<String> splashHelloList = ["Hello", "வணக்கம்","नमस्तेे" ,"olá", "سلام"];
   static const List<String> splashHelloImageList = ["assets/11.PNG", "assets/22.PNG","assets/33.PNG" ,"assets/44.PNG", "assets/55.PNG"];
-  static const List<String> logoImageList = ["assets/logo11.PNG", "assets/logo22.PNG", "assets/logo33.PNG", "assets/logo44.jpg", "assets/logo55.PNG", "assets/logo66.PNG", "assets/logo77.PNG", "assets/logo88.PNG", "assets/logo99.PNG", "assets/logo1010.PNG"];
+  static const List<String> logoImageList = ["https://karthikayansde.github.io/assets-site/assets/logo11.png", "https://karthikayansde.github.io/assets-site/assets/logo22.png", "https://karthikayansde.github.io/assets-site/assets/logo33.png", "https://karthikayansde.github.io/assets-site/assets/logo44.jpg", "https://karthikayansde.github.io/assets-site/assets/logo55.png", "https://karthikayansde.github.io/assets-site/assets/logo66.png", "https://karthikayansde.github.io/assets-site/assets/logo77.png", "https://karthikayansde.github.io/assets-site/assets/logo88.png", "https://karthikayansde.github.io/assets-site/assets/logo99.png", "https://karthikayansde.github.io/assets-site/assets/logo1010.png"];
   static const List<String> certificateImageList = [
     "https://karthikayansde.github.io/assets-site/assets/certificate7.png",
     "https://karthikayansde.github.io/assets-site/assets/certificate2.jpg",
