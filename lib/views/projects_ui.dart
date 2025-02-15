@@ -4,8 +4,11 @@ import 'package:flutter/widgets.dart';
 import 'package:karthi_kayan_portfolio/commons/colors.dart';
 import 'package:karthi_kayan_portfolio/commons/project_data.dart';
 import 'package:karthi_kayan_portfolio/commons/strings.dart';
+import 'package:karthi_kayan_portfolio/services/functional_services.dart';
 import 'package:karthi_kayan_portfolio/services/responsive.dart';
+import 'package:karthi_kayan_portfolio/services/url_launcher.dart';
 import 'package:karthi_kayan_portfolio/widgets/button_widget.dart';
+import 'package:karthi_kayan_portfolio/widgets/network_image.dart';
 import 'package:karthi_kayan_portfolio/widgets/text_widget.dart';
 
 class ProjectsUi extends StatefulWidget {
@@ -39,7 +42,10 @@ class _ProjectsUiState extends State<ProjectsUi> {
                 children: List.generate(/*isShowMore?*/ ProjectData.projectsList.length /*: 4*/, (index) {
                   // return smallCard(context,);
                   // return projectCard(context,0);
-                  return projectBigCardUpdated(context,0);
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: projectBigCardUpdated(context,index),
+                  );
                 })),
           ),
           // !isShowMore ? SizedBox(
@@ -146,72 +152,6 @@ class _ProjectsUiState extends State<ProjectsUi> {
     );
   }
 
-  Widget projectCard(BuildContext context, int index) {
-    return Column(
-      children: [
-        !Responsive.isDesktop(context)? imageBox(context):Container(),
-        Row(
-          children: [
-            Responsive.isDesktop(context)? imageBox(context):Container(),
-            Responsive.isDesktop(context)? SizedBox(
-              width: 20,
-            ):Container(),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: Responsive.isMobile(context) ?10:0,
-                  ),
-                  TextWidget.header1(ProjectData.projectsList[index]['name'], context),
-                  SizedBox(
-                    height: Responsive.isMobile(context) ? 10 : 15,
-                  ),
-                  TextWidget.body(ProjectData.projectsList[index]['details'], context),
-                  SizedBox(
-                    height: Responsive.isMobile(context) ?10: 15,
-                  ),
-                  Wrap(
-                      spacing: 10,
-                      runSpacing: 10,
-                      children: List.generate(ProjectData.projectsList[index]['availableIn'].length, (index) {
-                        return Wrap(
-                          crossAxisAlignment: WrapCrossAlignment.center,
-                          children: [
-
-                            index == 0?TextWidget.header4(MyStrings.availableIn, context):Wrap(),
-                            index == 0?SizedBox(width: 5,):Wrap(),
-                                        SizedBox(width: 25, child: Image.asset("assets/gmail.png")),
-                                        SizedBox(width: 5,),
-                                        TextWidget.header4("gmail", context),
-                                        TextWidget.header4(index != 5 ? ', ' : '.', context),
-                          ],
-                        );
-                      })),
-                  SizedBox(
-                    height: Responsive.isMobile(context) ? 5 : 10,
-                  ),
-                  TextWidget.header4(MyStrings.techStacks, context),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Wrap(
-                      spacing: 10,
-                      runSpacing: 10,
-                      children: List.generate(5, (index) {
-                        return techStack(context);
-                      }))
-                ],
-              ),
-            ),
-          ],
-        ),
-        SizedBox(height: 10,),
-        Divider(color: MyColors.black,height: 1,),
-        SizedBox(height: 10,),
-      ],
-    );
-  }
 
   Widget techStack(BuildContext context){
     return Container(
@@ -227,12 +167,23 @@ class _ProjectsUiState extends State<ProjectsUi> {
         ));
   }
 
-  Widget imageBox(BuildContext context){
-    return AspectRatio(
-      aspectRatio: 3/2,
-      child: Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), border: Border.all(width: 1, color: MyColors.black), image: DecorationImage(image: AssetImage("assets/certificate44.JPG"))),
-      ),
+  Widget imageBox(BuildContext context, String image){
+    return InkWell(
+      focusColor: MyColors.transparent,
+      hoverColor: MyColors.transparent,
+      highlightColor: MyColors.transparent,
+      splashColor: MyColors.transparent,
+      onTap: () {
+        showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return FunctionalServices.showImage(image, context);
+            });
+      },
+      child: AspectRatio(
+          aspectRatio: 3/2,
+          child: ClipRRect( borderRadius: BorderRadius.circular(10), child: NetworkImageCommon(URL: image, defaultImage: 'assets/BgImageContact.JPG', ))
+      )
     );
   }
 
@@ -249,7 +200,7 @@ class _ProjectsUiState extends State<ProjectsUi> {
         padding: const EdgeInsets.all(20.0),
         child: Responsive.isVertical(context) || Responsive.isMobile(context) ?Column(
           children: [
-            imageBox(context),
+            imageBox(context, ProjectData.projectsList[index]["primaryImage"]),
             SizedBox(height: 10,),
             text(index),
           ],
@@ -259,7 +210,7 @@ class _ProjectsUiState extends State<ProjectsUi> {
               child: text(index)
             ),
             SizedBox(width: 8,),
-            Expanded(child: imageBox(context)),
+            Expanded(child: imageBox(context, ProjectData.projectsList[index]["primaryImage"])),
           ],
         )
       ),
@@ -273,25 +224,102 @@ class _ProjectsUiState extends State<ProjectsUi> {
         TextWidget.header1(ProjectData.projectsList[index]['name'], context),
         SizedBox(height: 10,),
         TextWidget.body(ProjectData.projectsList[index]['details'], context),
+        if(ProjectData.projectsList[index]['techStack'] != null)
+          Divider(color: MyColors.black,thickness: 0.5,),
+        if(ProjectData.projectsList[index]['techStack'] != null)
+          Wrap(
+            children: [
+              ...ProjectData.projectsList[index]['techStack'].map<Widget>((fileName) => Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextWidget.body(fileName["techStackName"], context),
+              )),
+            ],
+          ),
         Divider(color: MyColors.black,thickness: 0.5,),
-        Wrap(
-          children: [
-            ...ProjectData.projectsList[index]['techStack'].map<Widget>((fileName) => Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(color: Colors.red,height: 40,width: 100,),
-            )),
-          ],
-        ),
-        Divider(color: MyColors.black,thickness: 0.5,),
-        TextWidget.semiBody(MyStrings.viewOn, context),
+        if(ProjectData.projectsList[index]['availableIn'] != null)
+          TextWidget.semiBody(MyStrings.viewOn, context),
         SizedBox(height: 5,),
-        TextOutLinedButtonWidget(
-            onPressed: () {},
-            height: 45,
-            width: 145,
-            label: TextWidget.body(MyStrings.skillsServices, context, color: MyColors.black,)
-        ),
+        if(ProjectData.projectsList[index]['availableIn'] != null)
+          Wrap(
+            children: [
+              ...ProjectData.projectsList[index]['availableIn'].map<Widget>((fileName) => TextOutLinedButtonWidget(
+                      onPressed: () async {
+                        await UrlOpener.launch(fileName['availableInLink']);
+                      },
+                      height: 45,
+                      width: 145,
+                      label: TextWidget.body(fileName["availableInImage"], context, color: MyColors.black,)
+                  ),),
+            ],
+          ),
       ],
     );
   }
 }
+
+// Widget projectCard(BuildContext context, int index) {
+//   return Column(
+//     children: [
+//       !Responsive.isDesktop(context)? imageBox(context):Container(),
+//       Row(
+//         children: [
+//           Responsive.isDesktop(context)? imageBox(context):Container(),
+//           Responsive.isDesktop(context)? SizedBox(
+//             width: 20,
+//           ):Container(),
+//           Expanded(
+//             child: Column(
+//               crossAxisAlignment: CrossAxisAlignment.start,
+//               children: [
+//                 SizedBox(
+//                   height: Responsive.isMobile(context) ?10:0,
+//                 ),
+//                 TextWidget.header1(ProjectData.projectsList[index]['name'], context),
+//                 SizedBox(
+//                   height: Responsive.isMobile(context) ? 10 : 15,
+//                 ),
+//                 TextWidget.body(ProjectData.projectsList[index]['details'], context),
+//                 SizedBox(
+//                   height: Responsive.isMobile(context) ?10: 15,
+//                 ),
+//                 Wrap(
+//                     spacing: 10,
+//                     runSpacing: 10,
+//                     children: List.generate(ProjectData.projectsList[index]['availableIn'].length, (index) {
+//                       return Wrap(
+//                         crossAxisAlignment: WrapCrossAlignment.center,
+//                         children: [
+//
+//                           index == 0?TextWidget.header4(MyStrings.availableIn, context):Wrap(),
+//                           index == 0?SizedBox(width: 5,):Wrap(),
+//                           SizedBox(width: 25, child: Image.asset("assets/gmail.png")),
+//                           SizedBox(width: 5,),
+//                           TextWidget.header4("gmail", context),
+//                           TextWidget.header4(index != 5 ? ', ' : '.', context),
+//                         ],
+//                       );
+//                     })),
+//                 SizedBox(
+//                   height: Responsive.isMobile(context) ? 5 : 10,
+//                 ),
+//                 TextWidget.header4(MyStrings.techStacks, context),
+//                 SizedBox(
+//                   height: 5,
+//                 ),
+//                 Wrap(
+//                     spacing: 10,
+//                     runSpacing: 10,
+//                     children: List.generate(5, (index) {
+//                       return techStack(context);
+//                     }))
+//               ],
+//             ),
+//           ),
+//         ],
+//       ),
+//       SizedBox(height: 10,),
+//       Divider(color: MyColors.black,height: 1,),
+//       SizedBox(height: 10,),
+//     ],
+//   );
+// }

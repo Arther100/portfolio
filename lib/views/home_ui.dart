@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:karthi_kayan_portfolio/commons/colors.dart';
 import 'package:karthi_kayan_portfolio/views/about_ui.dart';
 import 'package:karthi_kayan_portfolio/views/appbar_ui.dart';
 import 'package:karthi_kayan_portfolio/views/contact_ui.dart';
 import 'package:karthi_kayan_portfolio/views/hero_section_ui.dart';
 import 'package:karthi_kayan_portfolio/views/projects_ui.dart';
 import 'package:karthi_kayan_portfolio/views/skills_services_ui.dart';
-import 'package:karthi_kayan_portfolio/widgets/text_widget.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class HomeUi extends StatelessWidget {
@@ -26,16 +24,16 @@ class HomeUi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: Container(
-        decoration: BoxDecoration(
-          color: MyColors.white,
-          border: Border.all(color: MyColors.black, width: 1),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text("! Under Development",style: TextStyle(color: MyColors.red),),
-        ),
-      ),
+      // floatingActionButton: Container(
+      //   decoration: BoxDecoration(
+      //     color: MyColors.white,
+      //     border: Border.all(color: MyColors.black, width: 1),
+      //   ),
+      //   child: Padding(
+      //     padding: const EdgeInsets.all(8.0),
+      //     child: Text("! Under Development",style: TextStyle(color: MyColors.red),),
+      //   ),
+      // ),
       body: Column(
         children: [
           const AppbarUi(),

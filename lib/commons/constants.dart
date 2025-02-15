@@ -15,7 +15,7 @@ class Constants{
     "https://karthikayansde.github.io/assets-site/assets/certificate10.png",
   ];
   static const List<String> certificateNaanMuthalvan = [
-    "https://karthikayansde.github.io/assets-site/assets/naan1.png",
+    "https://karthikayansde.github.io/assets-site/assets/naan.jpeg",
     "https://karthikayansde.github.io/assets-site/assets/naan2.jpg",
     "https://karthikayansde.github.io/assets-site/assets/naan1.png",
   ];

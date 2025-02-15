@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:karthi_kayan_portfolio/commons/colors.dart';
 import 'package:karthi_kayan_portfolio/commons/constants.dart';
 import 'package:karthi_kayan_portfolio/commons/strings.dart';
-import 'package:karthi_kayan_portfolio/views/home_ui.dart';
 import 'package:karthi_kayan_portfolio/views/splash_ui.dart';
 
 void main() {
@@ -26,8 +25,8 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      // home: const SplashUi(),
-      home: HomeUi(),
+      home: const SplashUi(),
+      // home: HomeUi(),
     );
   }
 }
