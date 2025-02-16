@@ -1,12 +1,12 @@
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher_web/url_launcher_web.dart' as launcher;
+import 'package:url_launcher_web/url_launcher_web.dart';
 
 class UrlOpener{
 
-
   static Future<bool> launch(String phUrl) async {
     final Uri url = Uri.parse(phUrl);
-    if (await canLaunchUrl(url)) {
-      if (await launchUrl(url)) {
+    if (await UrlLauncherPlugin().canLaunch(phUrl)) {
+      if (await UrlLauncherPlugin().launch(phUrl)) {
         return true;
       }
       else {

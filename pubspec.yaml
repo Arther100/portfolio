@@ -14,7 +14,7 @@ dependencies:
   audioplayers: ^6.0.0
   photo_view: ^0.15.0
   scrollable_positioned_list: ^0.3.8
-  url_launcher: ^6.3.1
+  url_launcher_web:
 
 dev_dependencies:
   flutter_test:

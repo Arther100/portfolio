@@ -9,16 +9,16 @@ import 'package:photo_view/photo_view.dart';
 class FunctionalServices{
   static Future<void> launchAndCopyUrl({required BuildContext context, required String URL, String? textToCopy}) async {
     await UrlOpener.launch(URL);
-    CopyPasteService.setData(textToCopy??URL).then((value) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          backgroundColor: MyColors.red,
-          content: TextWidget.body(MyStrings.linkCopied, context, color: MyColors.white,),
-          duration: Duration(seconds: 3),
-        ),
-      );
-    },
-    );
+    // CopyPasteService.setData(textToCopy??URL).then((value) {
+    //   ScaffoldMessenger.of(context).showSnackBar(
+    //     SnackBar(
+    //       backgroundColor: MyColors.red,
+    //       content: TextWidget.body(MyStrings.linkCopied, context, color: MyColors.white,),
+    //       duration: Duration(seconds: 3),
+    //     ),
+    //   );
+    // },
+    // );
 }
 
   static Widget showImage(String source, BuildContext context) {
