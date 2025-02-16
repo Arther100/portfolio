@@ -113,7 +113,7 @@ class ButtonPopOver extends StatelessWidget {
                 padding: const EdgeInsets.all(8),
                 children: [
                   InkWell(
-                    onTap: (){ScrollToPage.changePage(Pages.about.index);},
+                    onTap: (){ScrollToPage.changePage(Pages.about.index);Navigator.pop(context);},
                   child: SizedBox(
                     width: double.infinity,
                       height: 30,
@@ -121,7 +121,7 @@ class ButtonPopOver extends StatelessWidget {
               ),
                   const Divider(),
                   InkWell(
-                    onTap: (){ScrollToPage.changePage(Pages.skills.index);},
+                    onTap: (){ScrollToPage.changePage(Pages.skills.index);Navigator.pop(context);},
                     child: SizedBox(
                         width: double.infinity,
                         height: 30,
@@ -129,7 +129,7 @@ class ButtonPopOver extends StatelessWidget {
                   ),
                   const Divider(),
                   InkWell(
-                    onTap: (){ScrollToPage.changePage(Pages.projects.index);},
+                    onTap: (){ScrollToPage.changePage(Pages.projects.index);Navigator.pop(context);},
                     child: SizedBox(
                         width: double.infinity,
                         height: 30,
