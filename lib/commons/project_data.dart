@@ -156,8 +156,12 @@ class ProjectData{
       "primaryImage": "https://karthikayansde.github.io/assets-site/assets/Group%2092.png",
       "availableIn":[
         {
-          "availableInImage": "PlayStore",
-          "availableInLink": "https://play.google.com/store/apps/details?id=com.karthikayanApps.chats_QR_Code_and_Redirector"
+          "availableInImage": "GitHub",
+          "availableInLink": "https://github.com/karthikayansde/whatsapp_number_qr_generator_and_scanner_for_redirector"
+        },
+        {
+          "availableInImage": "APK",
+          "availableInLink": "https://karthikayansde.github.io/assets-site/assets/Chat's_QR_Code_and_Redirector.apk"
         }
       ],
       "techStack": [

@@ -242,14 +242,17 @@ class _ProjectsUiState extends State<ProjectsUi> {
         if(ProjectData.projectsList[index]['availableIn'] != null)
           Wrap(
             children: [
-              ...ProjectData.projectsList[index]['availableIn'].map<Widget>((fileName) => TextOutLinedButtonWidget(
-                      onPressed: () async {
-                        await UrlOpener.launch(fileName['availableInLink']);
-                      },
-                      height: 45,
-                      width: 145,
-                      label: TextWidget.body(fileName["availableInImage"], context, color: MyColors.black,)
-                  ),),
+              ...ProjectData.projectsList[index]['availableIn'].map<Widget>((fileName) => Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: TextOutLinedButtonWidget(
+                        onPressed: () async {
+                          await UrlOpener.launch(fileName['availableInLink']);
+                        },
+                        height: 45,
+                        width: 145,
+                        label: TextWidget.body(fileName["availableInImage"], context, color: MyColors.black,)
+                    ),
+              ),),
             ],
           ),
       ],
