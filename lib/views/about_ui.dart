@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide CarouselController;
 import 'package:karthi_kayan_portfolio/commons/colors.dart';
 import 'package:karthi_kayan_portfolio/commons/constants.dart';
 import 'package:karthi_kayan_portfolio/commons/font_sizes.dart';
