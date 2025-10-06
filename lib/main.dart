@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:karthi_kayan_portfolio/commons/colors.dart';
-import 'package:karthi_kayan_portfolio/commons/constants.dart';
-import 'package:karthi_kayan_portfolio/commons/strings.dart';
-import 'package:karthi_kayan_portfolio/views/splash_ui.dart';
+import 'package:portfolio/commons/colors.dart';
+import 'package:portfolio/commons/constants.dart';
+import 'package:portfolio/commons/strings.dart';
+import 'package:portfolio/views/splash_ui.dart';
 
 void main() {
   runApp(const MyApp());

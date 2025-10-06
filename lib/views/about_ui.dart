@@ -1,13 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart' hide CarouselController;
-import 'package:karthi_kayan_portfolio/commons/colors.dart';
-import 'package:karthi_kayan_portfolio/commons/constants.dart';
-import 'package:karthi_kayan_portfolio/commons/font_sizes.dart';
-import 'package:karthi_kayan_portfolio/commons/strings.dart';
-import 'package:karthi_kayan_portfolio/services/functional_services.dart';
-import 'package:karthi_kayan_portfolio/services/responsive.dart';
-import 'package:karthi_kayan_portfolio/widgets/text_widget.dart';
+import 'package:portfolio/commons/colors.dart';
+import 'package:portfolio/commons/constants.dart';
+import 'package:portfolio/commons/font_sizes.dart';
+import 'package:portfolio/commons/strings.dart';
+import 'package:portfolio/services/functional_services.dart';
+import 'package:portfolio/services/responsive.dart';
+import 'package:portfolio/widgets/text_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:photo_view/photo_view.dart';
 // import 'package:video_player/video_player.dart';
@@ -51,9 +51,14 @@ class _AboutUiState extends State<AboutUi> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.maxFinite,
-      height: Responsive.isDesktop(context) ? Responsive.getHeight(context) - (Responsive.isMobile(context) ? 50 : 65) : null,
+      height: Responsive.isDesktop(context)
+          ? Responsive.getHeight(context) -
+              (Responsive.isMobile(context) ? 50 : 65)
+          : null,
       child: Padding(
-          padding: EdgeInsets.only(right: Responsive.isMobile(context) ? 15 : 30, left: Responsive.isMobile(context) ? 15 : 30),
+          padding: EdgeInsets.only(
+              right: Responsive.isMobile(context) ? 15 : 30,
+              left: Responsive.isMobile(context) ? 15 : 30),
           child: Stack(
             children: [
               Row(
@@ -71,7 +76,8 @@ class _AboutUiState extends State<AboutUi> {
                         RichText(
                             text: TextSpan(children: [
                           TextSpan(
-                              text: 'I am a BCA (Bachelor of Computer Applications) graduate with a ',
+                              text:
+                                  'I am a BCA (Bachelor of Computer Applications) graduate with a ',
                               style: TextStyle(
                                 fontSize: FontSizes.body(context),
                                 fontWeight: FontWeights.regular,
@@ -96,11 +102,17 @@ class _AboutUiState extends State<AboutUi> {
                                 color: MyColors.black,
                               )),
                           TextSpan(
-                            text: 'I joined CI Global Technology as a software engineer',
-                            style: TextStyle(fontFamily: Constants.font, fontSize: FontSizes.body(context), fontWeight: FontWeights.semiBold, color: MyColors.black),
+                            text:
+                                'I joined CI Global Technology as a software engineer',
+                            style: TextStyle(
+                                fontFamily: Constants.font,
+                                fontSize: FontSizes.body(context),
+                                fontWeight: FontWeights.semiBold,
+                                color: MyColors.black),
                           ),
                           TextSpan(
-                              text: ' in July 2023 and have been working here since.\n\n I specialize in creating efficient and user-friendly solutions, from web and mobile apps to backend systems. Let\'s connect and create something great together!',
+                              text:
+                                  ' in July 2023 and have been working here since.\n\n I specialize in creating efficient and user-friendly solutions, from web and mobile apps to backend systems. Let\'s connect and create something great together!',
                               style: TextStyle(
                                 fontFamily: Constants.font,
                                 fontSize: FontSizes.body(context),
@@ -111,47 +123,53 @@ class _AboutUiState extends State<AboutUi> {
                         SizedBox(
                           height: 25,
                         ),
-                          // height: 250,
-                          // width: 450,
-                          // child: Align(
-                          //   alignment: Alignment.bottomLeft,
-                          // child: AnimatedSwitcher(
-                          //   duration: Duration(milliseconds: 300),
-                          //   transitionBuilder: (Widget child, Animation<double> animation) {
-                          //     return FadeTransition(opacity: animation, child: child);
-                          //   },
-                            Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: Constants.certificateNaanMuthalvan.map((item) =>
-                                    InkWell(
-                                      focusColor: MyColors.transparent,
-                                      hoverColor: MyColors.transparent,
-                                      highlightColor: MyColors.transparent,
-                                      splashColor: MyColors.transparent,
-                                      onTap: () {
-                                        showDialog(
-                                            context: context,
-                                            builder: (BuildContext context) {
-                                              return FunctionalServices.showImage(item, context);
-                                            });
-                                      },
-                                      child: Image.network(
-                                        fit: BoxFit.fitWidth,
-                                        height: Responsive.isMobile(context)?88: 150,
-                                        item,
-                                        // key: ValueKey<int>(_currentIndex),
-                                      ),
-                                    ),).toList(),
-                            // ),
-                            // ),
-                                                    ),
+                        // height: 250,
+                        // width: 450,
+                        // child: Align(
+                        //   alignment: Alignment.bottomLeft,
+                        // child: AnimatedSwitcher(
+                        //   duration: Duration(milliseconds: 300),
+                        //   transitionBuilder: (Widget child, Animation<double> animation) {
+                        //     return FadeTransition(opacity: animation, child: child);
+                        //   },
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: Constants.certificateNaanMuthalvan
+                              .map(
+                                (item) => InkWell(
+                                  focusColor: MyColors.transparent,
+                                  hoverColor: MyColors.transparent,
+                                  highlightColor: MyColors.transparent,
+                                  splashColor: MyColors.transparent,
+                                  onTap: () {
+                                    showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          return FunctionalServices.showImage(
+                                              item, context);
+                                        });
+                                  },
+                                  child: Image.network(
+                                    fit: BoxFit.fitWidth,
+                                    height:
+                                        Responsive.isMobile(context) ? 88 : 150,
+                                    item,
+                                    // key: ValueKey<int>(_currentIndex),
+                                  ),
+                                ),
+                              )
+                              .toList(),
+                          // ),
+                          // ),
+                        ),
                         SizedBox(
                           height: 15,
                         ),
                         RichText(
                             text: TextSpan(children: [
                           TextSpan(
-                              text: 'I presented one of my projects, titled \'Intelligent Admissions: The Future of University Decision Making with Machine Learning,\' to the ',
+                              text:
+                                  'I presented one of my projects, titled \'Intelligent Admissions: The Future of University Decision Making with Machine Learning,\' to the ',
                               style: TextStyle(
                                 fontFamily: Constants.font,
                                 fontSize: FontSizes.body(context),
@@ -160,10 +178,15 @@ class _AboutUiState extends State<AboutUi> {
                               )),
                           TextSpan(
                             text: 'Tamil Nadu Chief Minister',
-                            style: TextStyle(fontFamily: Constants.font, fontSize: FontSizes.body(context), fontWeight: FontWeights.semiBold, color: MyColors.black),
+                            style: TextStyle(
+                                fontFamily: Constants.font,
+                                fontSize: FontSizes.body(context),
+                                fontWeight: FontWeights.semiBold,
+                                color: MyColors.black),
                           ),
                           TextSpan(
-                              text: '. It was one of 16 projects selected for presentation in the state.',
+                              text:
+                                  '. It was one of 16 projects selected for presentation in the state.',
                               style: TextStyle(
                                 fontFamily: Constants.font,
                                 fontSize: FontSizes.body(context),
@@ -212,7 +235,8 @@ class _AboutUiState extends State<AboutUi> {
                         onPressed: () => _controller.previousPage(),
                         backgroundColor: MyColors.white,
                         child: const Center(
-                          child: Icon(Icons.arrow_upward_sharp, size: 30, color: MyColors.black),
+                          child: Icon(Icons.arrow_upward_sharp,
+                              size: 30, color: MyColors.black),
                         ),
                       ),
                     )
@@ -223,7 +247,9 @@ class _AboutUiState extends State<AboutUi> {
                       right: 0,
                       child: FloatingActionButton(
                         backgroundColor: MyColors.white,
-                        child: const Center(child: Icon(Icons.arrow_downward_sharp, size: 30, color: MyColors.black)),
+                        child: const Center(
+                            child: Icon(Icons.arrow_downward_sharp,
+                                size: 30, color: MyColors.black)),
                         onPressed: () => _controller.nextPage(),
                       ),
                     )
@@ -237,7 +263,8 @@ class _AboutUiState extends State<AboutUi> {
 class CertificateCarousel extends StatefulWidget {
   final Axis scrollDir;
 
-  const CertificateCarousel({Key? key, required this.scrollDir}) : super(key: key);
+  const CertificateCarousel({Key? key, required this.scrollDir})
+      : super(key: key);
 
   @override
   _CertificateCarouselState createState() => _CertificateCarouselState();
@@ -254,7 +281,9 @@ class _CertificateCarouselState extends State<CertificateCarousel> {
         CarouselSlider(
       carouselController: _controller,
       options: CarouselOptions(
-        scrollPhysics: Responsive.isDesktop(context) ? NeverScrollableScrollPhysics() : null,
+        scrollPhysics: Responsive.isDesktop(context)
+            ? NeverScrollableScrollPhysics()
+            : null,
         scrollDirection: widget.scrollDir,
         autoPlay: true,
       ),

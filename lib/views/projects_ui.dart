@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:karthi_kayan_portfolio/commons/colors.dart';
-import 'package:karthi_kayan_portfolio/commons/project_data.dart';
-import 'package:karthi_kayan_portfolio/commons/strings.dart';
-import 'package:karthi_kayan_portfolio/services/functional_services.dart';
-import 'package:karthi_kayan_portfolio/services/responsive.dart';
-import 'package:karthi_kayan_portfolio/services/url_launcher.dart';
-import 'package:karthi_kayan_portfolio/widgets/button_widget.dart';
-import 'package:karthi_kayan_portfolio/widgets/network_image.dart';
-import 'package:karthi_kayan_portfolio/widgets/text_widget.dart';
+import 'package:portfolio/commons/colors.dart';
+import 'package:portfolio/commons/project_data.dart';
+import 'package:portfolio/commons/strings.dart';
+import 'package:portfolio/services/functional_services.dart';
+import 'package:portfolio/services/responsive.dart';
+import 'package:portfolio/services/url_launcher.dart';
+import 'package:portfolio/widgets/button_widget.dart';
+import 'package:portfolio/widgets/network_image.dart';
+import 'package:portfolio/widgets/text_widget.dart';
 
 class ProjectsUi extends StatefulWidget {
   const ProjectsUi({super.key});
@@ -24,7 +24,9 @@ class _ProjectsUiState extends State<ProjectsUi> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: Responsive.isMobile(context) ? 15 : 30, left: Responsive.isMobile(context) ? 15 : 30),
+      padding: EdgeInsets.only(
+          right: Responsive.isMobile(context) ? 15 : 30,
+          left: Responsive.isMobile(context) ? 15 : 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -39,12 +41,14 @@ class _ProjectsUiState extends State<ProjectsUi> {
             child: Wrap(
                 crossAxisAlignment: WrapCrossAlignment.center,
                 alignment: WrapAlignment.spaceEvenly,
-                children: List.generate(/*isShowMore?*/ ProjectData.projectsList.length /*: 4*/, (index) {
+                children: List.generate(
+                    /*isShowMore?*/ ProjectData.projectsList.length /*: 4*/,
+                    (index) {
                   // return smallCard(context,);
                   // return projectCard(context,0);
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: projectBigCardUpdated(context,index),
+                    child: projectBigCardUpdated(context, index),
                   );
                 })),
           ),
@@ -67,74 +71,108 @@ class _ProjectsUiState extends State<ProjectsUi> {
     );
   }
 
-  Widget smallCard(BuildContext context){
+  Widget smallCard(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        width: Responsive.getWidth(context) < 900 ? 300: (Responsive.getWidth(context)-100)/2 ,
-        decoration: BoxDecoration(color: MyColors.white , borderRadius: BorderRadius.all(Radius.circular(20)),boxShadow: [BoxShadow(
-          color: Colors.black.withOpacity(0.2),
-          spreadRadius: 0,
-          blurRadius: 5,
-          offset: Offset(-5, 5),)]),
+        width: Responsive.getWidth(context) < 900
+            ? 300
+            : (Responsive.getWidth(context) - 100) / 2,
+        decoration: BoxDecoration(
+            color: MyColors.white,
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.2),
+                spreadRadius: 0,
+                blurRadius: 5,
+                offset: Offset(-5, 5),
+              )
+            ]),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset("assets/certificate44.JPG"),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 8),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextWidget.header1Project('Comment Lines Remover', context),
-                  SizedBox(height: 5,),
+                  SizedBox(
+                    height: 5,
+                  ),
                   TextWidget.header4Project(MyStrings.techStacks, context),
                   Wrap(
                       crossAxisAlignment: WrapCrossAlignment.center,
-                    alignment: WrapAlignment.center,
+                      alignment: WrapAlignment.center,
                       children: List.generate(3, (index) {
                         return Wrap(
                           crossAxisAlignment: WrapCrossAlignment.center,
                           alignment: WrapAlignment.center,
                           children: [
-                            SizedBox(width: 10,),
-                            SizedBox(width: 25, child: Image.asset("assets/gmail.png")),
-                            SizedBox(width: 5,),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            SizedBox(
+                                width: 25,
+                                child: Image.asset("assets/gmail.png")),
+                            SizedBox(
+                              width: 5,
+                            ),
                             TextWidget.header4ProjectRegular("gmail", context),
                           ],
                         );
                       })),
-                  SizedBox(height: 10,),
-                  TextWidget.body("     I am a professional software developer who develops high-performing and user-friendly software. I develop websites and Android and iOS mobile apps with well-designed responsive layouts.", context,textAlign: TextAlign.justify),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  TextWidget.body(
+                      "     I am a professional software developer who develops high-performing and user-friendly software. I develop websites and Android and iOS mobile apps with well-designed responsive layouts.",
+                      context,
+                      textAlign: TextAlign.justify),
+                  SizedBox(
+                    height: 10,
+                  ),
                   TextWidget.header4Project(MyStrings.availableIn, context),
                   Wrap(
                       crossAxisAlignment: WrapCrossAlignment.center,
                       alignment: WrapAlignment.center,
                       children: List.generate(3, (index) {
                         return Padding(
-                          padding: const EdgeInsets.only(left: 8.0,top: 8),
+                          padding: const EdgeInsets.only(left: 8.0, top: 8),
                           child: InkWell(
-                            onTap: (){},
+                            onTap: () {},
                             child: Container(
                               decoration: BoxDecoration(
-                                color: MyColors.white,
-                                borderRadius: BorderRadius.circular(5),
-                                boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.2),
-                                  spreadRadius: 0,
-                                  blurRadius: 5,
-                                  offset: Offset(0, 2),)]
-                              ),
+                                  color: MyColors.white,
+                                  borderRadius: BorderRadius.circular(5),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.2),
+                                      spreadRadius: 0,
+                                      blurRadius: 5,
+                                      offset: Offset(0, 2),
+                                    )
+                                  ]),
                               child: Padding(
                                 padding: const EdgeInsets.all(8),
                                 child: Wrap(
                                   crossAxisAlignment: WrapCrossAlignment.center,
                                   alignment: WrapAlignment.center,
                                   children: [
-                                    SizedBox(width: 5,),
-                                    SizedBox(width: 25, child: Image.asset("assets/gmail.png")),
-                                    SizedBox(width: 5,),
-                                    TextWidget.header4ProjectRegular("gmail", context),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    SizedBox(
+                                        width: 25,
+                                        child: Image.asset("assets/gmail.png")),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    TextWidget.header4ProjectRegular(
+                                        "gmail", context),
                                   ],
                                 ),
                               ),
@@ -142,7 +180,9 @@ class _ProjectsUiState extends State<ProjectsUi> {
                           ),
                         );
                       })),
-                  SizedBox(height: 15,),
+                  SizedBox(
+                    height: 15,
+                  ),
                 ],
               ),
             ),
@@ -152,107 +192,141 @@ class _ProjectsUiState extends State<ProjectsUi> {
     );
   }
 
-
-  Widget techStack(BuildContext context){
+  Widget techStack(BuildContext context) {
     return Container(
-        height: Responsive.isDesktop(context)? 70:40,
+        height: Responsive.isDesktop(context) ? 70 : 40,
         child: Wrap(
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
-            SizedBox(width: Responsive.isDesktop(context)? 70:40, child: Image.asset("assets/gmail.png")),
-            SizedBox(width: 10,),
-            TextWidget.header1("Gmail", context, color: MyColors.textSecondary,),
-            SizedBox(width: 15,),
+            SizedBox(
+                width: Responsive.isDesktop(context) ? 70 : 40,
+                child: Image.asset("assets/gmail.png")),
+            SizedBox(
+              width: 10,
+            ),
+            TextWidget.header1(
+              "Gmail",
+              context,
+              color: MyColors.textSecondary,
+            ),
+            SizedBox(
+              width: 15,
+            ),
           ],
         ));
   }
 
-  Widget imageBox(BuildContext context, String image){
+  Widget imageBox(BuildContext context, String image) {
     return InkWell(
-      focusColor: MyColors.transparent,
-      hoverColor: MyColors.transparent,
-      highlightColor: MyColors.transparent,
-      splashColor: MyColors.transparent,
-      onTap: () {
-        showDialog(
-            context: context,
-            builder: (BuildContext context) {
-              return FunctionalServices.showImage(image, context);
-            });
-      },
-      child: AspectRatio(
-          aspectRatio: 3/2,
-          child: ClipRRect( borderRadius: BorderRadius.circular(10), child: NetworkImageCommon(URL: image, defaultImage: 'assets/BgImageContact.JPG', ))
-      )
-    );
+        focusColor: MyColors.transparent,
+        hoverColor: MyColors.transparent,
+        highlightColor: MyColors.transparent,
+        splashColor: MyColors.transparent,
+        onTap: () {
+          showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return FunctionalServices.showImage(image, context);
+              });
+        },
+        child: AspectRatio(
+            aspectRatio: 3 / 2,
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: NetworkImageCommon(
+                  URL: image,
+                  defaultImage: 'assets/BgImageContact.JPG',
+                ))));
   }
 
   Widget projectBigCardUpdated(BuildContext context, int index) {
     return Container(
-      constraints: BoxConstraints(
-        maxWidth: 1600
-      ),
+      constraints: BoxConstraints(maxWidth: 1600),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
         color: MyColors.lightGrey,
       ),
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Responsive.isVertical(context) || Responsive.isMobile(context) ?Column(
-          children: [
-            imageBox(context, ProjectData.projectsList[index]["primaryImage"]),
-            SizedBox(height: 10,),
-            text(index),
-          ],
-        ): Row(
-          children: [
-            Expanded(
-              child: text(index)
-            ),
-            SizedBox(width: 8,),
-            Expanded(child: imageBox(context, ProjectData.projectsList[index]["primaryImage"])),
-          ],
-        )
-      ),
+          padding: const EdgeInsets.all(20.0),
+          child: Responsive.isVertical(context) || Responsive.isMobile(context)
+              ? Column(
+                  children: [
+                    imageBox(context,
+                        ProjectData.projectsList[index]["primaryImage"]),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    text(index),
+                  ],
+                )
+              : Row(
+                  children: [
+                    Expanded(child: text(index)),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Expanded(
+                        child: imageBox(context,
+                            ProjectData.projectsList[index]["primaryImage"])),
+                  ],
+                )),
     );
   }
-  Widget text(int index){
+
+  Widget text(int index) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         TextWidget.header1(ProjectData.projectsList[index]['name'], context),
-        SizedBox(height: 10,),
+        SizedBox(
+          height: 10,
+        ),
         TextWidget.body(ProjectData.projectsList[index]['details'], context),
-        if(ProjectData.projectsList[index]['techStack'] != null)
-          Divider(color: MyColors.black,thickness: 0.5,),
-        if(ProjectData.projectsList[index]['techStack'] != null)
+        if (ProjectData.projectsList[index]['techStack'] != null)
+          Divider(
+            color: MyColors.black,
+            thickness: 0.5,
+          ),
+        if (ProjectData.projectsList[index]['techStack'] != null)
           Wrap(
             children: [
-              ...ProjectData.projectsList[index]['techStack'].map<Widget>((fileName) => Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextWidget.body(fileName["techStackName"], context),
-              )),
+              ...ProjectData.projectsList[index]['techStack']
+                  .map<Widget>((fileName) => Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child:
+                            TextWidget.body(fileName["techStackName"], context),
+                      )),
             ],
           ),
-        Divider(color: MyColors.black,thickness: 0.5,),
-        if(ProjectData.projectsList[index]['availableIn'] != null)
+        Divider(
+          color: MyColors.black,
+          thickness: 0.5,
+        ),
+        if (ProjectData.projectsList[index]['availableIn'] != null)
           TextWidget.semiBody(MyStrings.viewOn, context),
-        SizedBox(height: 5,),
-        if(ProjectData.projectsList[index]['availableIn'] != null)
+        SizedBox(
+          height: 5,
+        ),
+        if (ProjectData.projectsList[index]['availableIn'] != null)
           Wrap(
             children: [
-              ...ProjectData.projectsList[index]['availableIn'].map<Widget>((fileName) => Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: TextOutLinedButtonWidget(
-                        onPressed: () async {
-                          await UrlOpener.launch(fileName['availableInLink']);
-                        },
-                        height: 45,
-                        width: 145,
-                        label: TextWidget.body(fileName["availableInImage"], context, color: MyColors.black,)
-                    ),
-              ),),
+              ...ProjectData.projectsList[index]['availableIn'].map<Widget>(
+                (fileName) => Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: TextOutLinedButtonWidget(
+                      onPressed: () async {
+                        await UrlOpener.launch(fileName['availableInLink']);
+                      },
+                      height: 45,
+                      width: 145,
+                      label: TextWidget.body(
+                        fileName["availableInImage"],
+                        context,
+                        color: MyColors.black,
+                      )),
+                ),
+              ),
             ],
           ),
       ],

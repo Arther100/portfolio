@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:karthi_kayan_portfolio/commons/colors.dart';
-import 'package:karthi_kayan_portfolio/commons/constants.dart';
-import 'package:karthi_kayan_portfolio/views/home_ui.dart';
+import 'package:portfolio/commons/colors.dart';
+import 'package:portfolio/commons/constants.dart';
+import 'package:portfolio/views/home_ui.dart';
 
 class SplashUi extends StatefulWidget {
   const SplashUi({super.key});
@@ -22,7 +22,7 @@ class _SplashUiState extends State<SplashUi> {
 
   Future<void> init() async {
     await Future.delayed(const Duration(milliseconds: 200));
-    for(String str in Constants.splashHelloImageList){
+    for (String str in Constants.splashHelloImageList) {
       await Future.delayed(const Duration(milliseconds: 300));
       helloStr = str;
       setState(() {});
@@ -31,6 +31,7 @@ class _SplashUiState extends State<SplashUi> {
       Navigator.of(context).pushReplacement(_createRoute());
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +40,10 @@ class _SplashUiState extends State<SplashUi> {
         height: double.maxFinite,
         color: MyColors.black,
         child: Center(
-          child: Image.asset(helloStr,width: 340,),
+          child: Image.asset(
+            helloStr,
+            width: 340,
+          ),
         ),
       ),
     );
@@ -53,7 +57,8 @@ class _SplashUiState extends State<SplashUi> {
         const begin = Offset(0.0, 1.0);
         const end = Offset.zero;
         const curve = Curves.linear;
-        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
         return SlideTransition(
           position: animation.drive(tween),
           child: child,
@@ -61,5 +66,4 @@ class _SplashUiState extends State<SplashUi> {
       },
     );
   }
-
 }

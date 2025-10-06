@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:karthi_kayan_portfolio/commons/colors.dart';
-import 'package:karthi_kayan_portfolio/commons/strings.dart';
-import 'package:karthi_kayan_portfolio/services/copy_paste_service.dart';
-import 'package:karthi_kayan_portfolio/services/url_launcher.dart';
-import 'package:karthi_kayan_portfolio/widgets/text_widget.dart';
+import 'package:portfolio/commons/colors.dart';
+import 'package:portfolio/commons/strings.dart';
+import 'package:portfolio/services/copy_paste_service.dart';
+import 'package:portfolio/services/url_launcher.dart';
+import 'package:portfolio/widgets/text_widget.dart';
 import 'package:photo_view/photo_view.dart';
 
-class FunctionalServices{
-  static Future<void> launchAndCopyUrl({required BuildContext context, required String URL, String? textToCopy}) async {
+class FunctionalServices {
+  static Future<void> launchAndCopyUrl(
+      {required BuildContext context,
+      required String URL,
+      String? textToCopy}) async {
     await UrlOpener.launch(URL);
     // CopyPasteService.setData(textToCopy??URL).then((value) {
     //   ScaffoldMessenger.of(context).showSnackBar(
@@ -19,7 +22,7 @@ class FunctionalServices{
     //   );
     // },
     // );
-}
+  }
 
   static Widget showImage(String source, BuildContext context) {
     return AlertDialog(

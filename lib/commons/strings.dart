@@ -1,9 +1,10 @@
-class MyStrings{
-  static const String appName = 'Karthi Kayan Portfolio';
-  static const String appBarC = 'Code by KarthiK';
+class MyStrings {
+  static const String appName = 'Vijay Arther Portfolio';
+  static const String appBarC = 'Code by VijayArther';
   static const String about = 'About';
   static const String showMore = 'Show More';
-  static const String contactDetail = "Let’s connect and discuss my services for your transformative software projects or collaboration with your visionary team.";
+  static const String contactDetail =
+      "Let’s connect and discuss my services for your transformative software projects or collaboration with your visionary team.";
   static const String projects = 'Projects';
   static const String skillsServices = 'Skills';
   static const String contact = 'Contact';
